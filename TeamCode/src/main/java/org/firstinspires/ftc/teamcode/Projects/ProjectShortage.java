@@ -14,17 +14,18 @@ public class ProjectShortage extends Project{
     public void init(HardwareMap ahwMap) {
         hwMap = ahwMap;
 
-        //Define and Initialize Motors
-        right = hwMap.dcMotor.get("right");
-        left = hwMap.dcMotor. get("left");
 
-        //Setup Motor directions and Encoder settings
+        left = hwMap.dcMotor.get("leftWheel");
+        right = hwMap.dcMotor.get("rightWheel");
+
         right.setDirection(DcMotor.Direction.FORWARD);
         left.setDirection(DcMotor.Direction.REVERSE);
 
-        right.
+        right.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        left.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
-        // Set all motors to zero power
+        right.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        left.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
     }
 
