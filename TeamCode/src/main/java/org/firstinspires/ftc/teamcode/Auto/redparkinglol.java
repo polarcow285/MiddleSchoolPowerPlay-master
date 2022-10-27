@@ -7,8 +7,8 @@ import org.firstinspires.ftc.teamcode.Projects.ProjectShortage;
 
 
 //name that appears on the driver hub screen
-@Autonomous(name = "Parking Autonomous")
-public class ParkingAutonomous extends LinearOpMode {
+@Autonomous(name = "Red Parking LoL")
+public class redparkinglol extends LinearOpMode {
     //making a robot from project file (hardware map)
     public ProjectShortage robot = new ProjectShortage();
 
@@ -19,6 +19,10 @@ public class ParkingAutonomous extends LinearOpMode {
 
         waitForStart();
         //autonomous happens here
-
+        robot.right.setPower(1);
+        robot.left.setPower(1);
+        sleep(2000); //need to test!!!!
+        robot.right.setPower(0);
+        robot.left.setPower(0);
     }
 }
