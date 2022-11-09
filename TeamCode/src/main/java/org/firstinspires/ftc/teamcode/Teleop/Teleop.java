@@ -18,7 +18,7 @@ public class Teleop extends LinearOpMode {
         while (opModeIsActive()) {
             //teleop goes here (gamepad controls, etc)
             robot.right.setPower(gamepad1.right_stick_y);
-            robot.left.setPower(-gamepad1.left_stick_y);
+            robot.left.setPower(gamepad1.left_stick_y);
 
             if (gamepad1.x) {
                 robot.lift_lol.setPower(1);
@@ -28,6 +28,7 @@ public class Teleop extends LinearOpMode {
                 robot.lift_lol.setPower(0);
                 robot.lift_mochi.setPower(0);
             }
+            //Lol
             if(gamepad1.y) {
                 robot.lift_lol.setPower(-1);
                 robot.lift_mochi.setPower(-1);
@@ -37,13 +38,13 @@ public class Teleop extends LinearOpMode {
                 robot.lift_mochi.setPower(0);
             }
             if(gamepad1.a) {
-                robot.clamp_lol.setPosition(1);
+                robot.clamp_lol.setPosition(0);
                 robot.clamp_mochi.setPosition(1);
 
             }
             if(gamepad1.b) {
-                robot.clamp_lol.setPosition(-1);
-                robot.clamp_mochi.setPosition(-1);
+                robot.clamp_lol.setPosition(1);
+                robot.clamp_mochi.setPosition(0);
             }
         }
     } }
