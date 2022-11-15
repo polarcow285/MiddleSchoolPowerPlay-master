@@ -24,5 +24,7 @@ public class redparkinglol extends LinearOpMode {
         sleep(2000); //need to test!!!!
         robot.right.setPower(0);
         robot.left.setPower(0);
+        robot.clamp_lol.setPosition(0);
+        robot.clamp_mochi.setPosition(1);
     }
 }
