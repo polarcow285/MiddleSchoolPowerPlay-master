@@ -9,7 +9,6 @@ import org.firstinspires.ftc.teamcode.Projects.ProjectShortage;
 public class Teleop extends LinearOpMode {
     //making a robot from project file (hardware map)
     public ProjectShortage robot = new ProjectShortage();
-
     @Override
     public void runOpMode() throws InterruptedException {
         robot.init(hardwareMap);
@@ -34,21 +33,32 @@ public class Teleop extends LinearOpMode {
             robot.fRight.setPower(frontRightPower);
             robot.bRight.setPower(backRightPower);
 
-            if (gamepad1.x) {
+            //teleop goes here (gamepad controls, etc)
+            if (gamepad2.x) {
                 robot.lift_lol.setPower(1);
                 robot.lift_mochi.setPower(1);
 
-            } else{
+            } else {
                 robot.lift_lol.setPower(0);
                 robot.lift_mochi.setPower(0);
             }
-            if(gamepad1.y) {
+            if (gamepad2.y) {
                 robot.lift_lol.setPower(-1);
                 robot.lift_mochi.setPower(-1);
 
-            } else{
+            } else {
                 robot.lift_lol.setPower(0);
                 robot.lift_mochi.setPower(0);
+            }
+            if (gamepad2.a) {
+                robot.clamp_lol.setPosition(0);
+                robot.clamp_mochi.setPosition(1);
+
+            }
+            if (gamepad2.b) {
+                robot.clamp_lol.setPosition(1);
+                robot.clamp_mochi.setPosition(0);
+
+            }
         }
-    }
-} }
+    } }
