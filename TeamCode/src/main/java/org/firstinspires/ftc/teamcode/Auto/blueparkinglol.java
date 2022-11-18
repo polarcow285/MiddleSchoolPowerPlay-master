@@ -21,8 +21,8 @@ public class blueparkinglol extends LinearOpMode {
         //autonomous happens here
         robot.fRight.setPower(-1);
         robot.fLeft.setPower(-1);
-        robot.bRight.setPower(-1);
-        robot.bLeft.setPower(-1);
+        robot.bRight.setPower(1);
+        robot.bLeft.setPower(1);
         sleep(2000); //need to test!!!!
         robot.fRight.setPower(0);
         robot.fLeft.setPower(0);
