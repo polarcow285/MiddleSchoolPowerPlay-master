@@ -15,9 +15,9 @@ public class Teleop extends LinearOpMode {
         waitForStart();
 
         while (opModeIsActive()) {
-            double y = -gamepad1.left_stick_y; // Remember, this is reversed!
-            double x = gamepad1.left_stick_x * 1.1; // Counteract imperfect strafing
-            double rx = gamepad1.right_stick_x;
+            double y = -gamepad1.right_stick_y; // Back and forth
+            double x = gamepad1.right_stick_x * 1.1; // strafing
+            double rx = gamepad1.left_stick_x; // turning
 
             // Denominator is the largest motor power (absolute value) or 1
             // This ensures all the powers maintain the same ratio, but only when
@@ -32,9 +32,11 @@ public class Teleop extends LinearOpMode {
             robot.bLeft.setPower(backLeftPower);
             robot.fRight.setPower(frontRightPower);
             robot.bRight.setPower(backRightPower);
+            robot.lift_mochi.setPower(gamepad2.right_stick_y);
+            robot.lift_lol.setPower(gamepad2.right_stick_y);
 
             //teleop goes here (gamepad controls, etc)
-            if (gamepad2.x) {
+            /* if (gamepad2.x) { // go up
                 robot.lift_lol.setPower(1);
                 robot.lift_mochi.setPower(1);
 
@@ -42,14 +44,14 @@ public class Teleop extends LinearOpMode {
                 robot.lift_lol.setPower(0);
                 robot.lift_mochi.setPower(0);
             }
-            if (gamepad2.y) {
+            if (gamepad2.y) {  // go down
                 robot.lift_lol.setPower(-1);
                 robot.lift_mochi.setPower(-1);
 
             } else {
                 robot.lift_lol.setPower(0);
                 robot.lift_mochi.setPower(0);
-            }
+            } */
             if (gamepad2.a) {
                 robot.clamp_lol.setPosition(0);
                 robot.clamp_mochi.setPosition(1);
