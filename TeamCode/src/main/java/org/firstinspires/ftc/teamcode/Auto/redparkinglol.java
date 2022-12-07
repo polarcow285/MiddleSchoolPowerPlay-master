@@ -19,22 +19,36 @@ public class redparkinglol extends LinearOpMode {
 
         waitForStart();
         //autonomous happens here
-        robot.bRight.setPower(1);
-        robot.bLeft.setPower(1);
-        robot.fRight.setPower(-1);
-        robot.fLeft.setPower(-1);
-        robot.lift_lol.setPower(1);
-        robot.lift_mochi.setPower(1);
-
-        sleep(2000); //need to test!!!!
-
-        robot.bRight.setPower(0);
-        robot.bLeft.setPower(0);
-        robot.fRight.setPower(0);
-        robot.fLeft.setPower(0);
+        robot.clamp_lol.setPosition(1);
+        robot.clamp_mochi.setPosition(0);
+        mufasa(2000, 1);
+        mufasa(2000,0);
+        turningRed(2000, 1);
+        mufasa(500,0)
+        lifty(1000,1);
         robot.clamp_lol.setPosition(0);
         robot.clamp_mochi.setPosition(1);
-        robot.lift_lol.setPower(0);
-        robot.lift_mochi.setPower(0);
+        lifty(1000,-1);
+
     }
-}
+
+    public void mufasa(int time, int speed) { //forward
+        robot.bRight.setPower(speed);
+        robot.bLeft.setPower(speed);
+        robot.fRight.setPower(speed);
+        robot.fLeft.setPower(speed);
+        sleep(time);
+    }
+    public void turningRed(int time, int speed) { // turn
+        robot.bRight.setPower(-speed);
+        robot.bLeft.setPower(speed);
+        robot.fRight.setPower(-speed);
+        robot.fLeft.setPower(speed);
+        sleep(time);
+    }
+
+    public void lifty(int time, int speed) { // lift
+        robot.lift_lol.setPower(speed);
+        robot.lift_mochi.setPower(speed);
+        sleep(time);
+    }

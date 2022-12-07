@@ -32,11 +32,11 @@ public class Teleop extends LinearOpMode {
             robot.bLeft.setPower(backLeftPower);
             robot.fRight.setPower(frontRightPower);
             robot.bRight.setPower(backRightPower);
-            //robot.lift_mochi.setPower(gamepad2.right_stick_y);
-            //robot.lift_lol.setPower(gamepad2.right_stick_y);
+            robot.lift_mochi.setPower(gamepad2.right_stick_y);
+            robot.lift_lol.setPower(gamepad2.right_stick_y);
 
             //teleop goes here (gamepad controls, etc)
-             if (gamepad2.x) { // go up
+             /* if (gamepad2.x) { // go up
                 robot.lift_lol.setPower(1);
                 robot.lift_mochi.setPower(1);
 
@@ -51,15 +51,16 @@ public class Teleop extends LinearOpMode {
             } else {
                 robot.lift_lol.setPower(0);
                 robot.lift_mochi.setPower(0);
-            }
+            }*/
             if (gamepad2.a) {
-                robot.clamp_lol.setPosition(0);
+                robot.clamp_lol.setPosition(1); //0
                 robot.clamp_mochi.setPosition(1);
 
             }
             if (gamepad2.b) {
-                robot.clamp_lol.setPosition(1);
+                robot.clamp_lol.setPosition(0); //105
                 robot.clamp_mochi.setPosition(0);
+
 
             }
         }
