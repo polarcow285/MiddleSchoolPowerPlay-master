@@ -30,8 +30,8 @@ public class ProjectShortage extends Project{
         clamp_mochi = hwMap.servo.get("clampMochi");
 
         //motors face towards each other
-        fRight.setDirection(DcMotor.Direction.REVERSE);
-        fLeft.setDirection(DcMotor.Direction.FORWARD);
+        fRight.setDirection(DcMotor.Direction.FORWARD);
+        fLeft.setDirection(DcMotor.Direction.REVERSE);
         bRight.setDirection(DcMotor.Direction.FORWARD);
         bLeft.setDirection(DcMotor.Direction.REVERSE);
         lift_lol.setDirection(DcMotor.Direction.FORWARD);

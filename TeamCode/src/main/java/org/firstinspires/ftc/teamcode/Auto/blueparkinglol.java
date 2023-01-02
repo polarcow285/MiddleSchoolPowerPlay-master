@@ -21,7 +21,7 @@ public class blueparkinglol extends LinearOpMode {
         //autonomous happens here
         robot.clamp_lol.setPosition(1);
         robot.clamp_mochi.setPosition(0);
-        mufasa(1000, 1);
+        mufasa(1148, 1);
         mufasa(2000, 0);
         turningRed(2000, 1);
         lifty(1000, 1);

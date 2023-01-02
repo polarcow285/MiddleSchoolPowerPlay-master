@@ -23,7 +23,7 @@ public class redparkinglol extends LinearOpMode {
         robot.clamp_mochi.setPosition(0);
         mufasa(2000, 1);
         mufasa(2000, 0);
-        turningRed(2000, 1);
+        turningRed(1000, 1);
         mufasa(500, 0);
         lifty(1000, 1);
         robot.clamp_lol.setPosition(0);
