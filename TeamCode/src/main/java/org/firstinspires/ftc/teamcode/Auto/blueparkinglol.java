@@ -19,11 +19,11 @@ public class blueparkinglol extends LinearOpMode {
 
         waitForStart();
         //autonomous happens here
-        robot.clamp_lol.setPosition(1);
-        robot.clamp_mochi.setPosition(0);
+        robot.clamp_lol.setPosition(0);
+        robot.clamp_mochi.setPosition(1);
         mufasa(1148, 1);
         mufasa(2000, 0);
-        turningRed(2000, 1);
+        turningRed(94.24, 1);
         lifty(1000, 1);
         robot.clamp_lol.setPosition(0);
         robot.clamp_mochi.setPosition(1);
@@ -40,10 +40,10 @@ public class blueparkinglol extends LinearOpMode {
     }
 
     public void turningRed(int time, int speed) { // turn
-        robot.bRight.setPower(-speed);
-        robot.bLeft.setPower(speed);
-        robot.fRight.setPower(-speed);
-        robot.fLeft.setPower(speed);
+        robot.bRight.setPower(speed);
+        robot.bLeft.setPower(-speed);
+        robot.fRight.setPower(speed);
+        robot.fLeft.setPower(-speed);
         sleep(time);
     }
 
