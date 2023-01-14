@@ -45,8 +45,8 @@ public class colin_teleop extends LinearOpMode {
                 robot.lift_mochi.setPower(-gamepad1.left_trigger);
 
             } else {
-                robot.lift_lol.setPower(0.5);
-                robot.lift_mochi.setPower(0.5);
+                robot.lift_lol.setPower(0);
+                robot.lift_mochi.setPower(0);
             }
             if (gamepad1.a) {
                 robot.clamp_lol.setPosition(1); //0
