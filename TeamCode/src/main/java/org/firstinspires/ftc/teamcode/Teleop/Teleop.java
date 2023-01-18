@@ -16,7 +16,7 @@ public class Teleop extends LinearOpMode {
 
         while (opModeIsActive()) {
             double y = -gamepad1.right_stick_y; // Back and forth
-            double x = gamepad1.right_stick_x * 1.1; // strafing
+            double x = -gamepad1.right_stick_x * 1.1; // strafing
             double rx = -gamepad1.left_stick_x; // turning
 
             // Denominator is the largest motor power (absolute value) or 1
