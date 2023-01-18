@@ -20,7 +20,7 @@ public class redparkinglol extends LinearOpMode {
 
         waitForStart();
         //autonomous happens here
-        /*robot.clamp_lol.setPosition(1);
+        robot.clamp_lol.setPosition(1);
         robot.clamp_mochi.setPosition(1);
         mufasa(1148, 1);
         mufasa(2000, 0);
@@ -29,15 +29,15 @@ public class redparkinglol extends LinearOpMode {
         robot.clamp_lol.setPosition(0);
         robot.clamp_mochi.setPosition(0);
         lifty(1000, -1);
-*/
-        /*robot.clamp_lol.setPosition(0);
+
+        robot.clamp_lol.setPosition(0);
         robot.clamp_mochi.setPosition(0);
         mufasa(1000, 0);
         mufasa(1248, 1);
         mufasa(1000, 0);
-*/
 
-        encoderDrive (1, 200, 200, 200, 200);
+
+        ///encoderDrive (1, 200, 200, 200, 200);
     }
 
     public void mufasa(int time, int speed) { //forward
@@ -132,4 +132,3 @@ public class redparkinglol extends LinearOpMode {
 }
 
 
-}

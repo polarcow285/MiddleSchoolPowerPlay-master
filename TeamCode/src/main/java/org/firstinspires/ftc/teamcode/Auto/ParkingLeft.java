@@ -8,8 +8,8 @@ import org.firstinspires.ftc.teamcode.Projects.ProjectShortage;
 
 
 //name that appears on the driver hub screen
-@Autonomous(name = "Blue Parking LoL")
-public class blueparkinglol extends LinearOpMode {
+@Autonomous(name = "Left Parking")
+public class ParkingLeft extends LinearOpMode {
     //making a robot from project file (hardware map)
     public ProjectShortage robot = new ProjectShortage();
 
@@ -19,30 +19,8 @@ public class blueparkinglol extends LinearOpMode {
         robot.init(hardwareMap);
 
         waitForStart();
-        //autonomous happens here
-        /*robot.clamp_lol.setPosition(0);
-        robot.clamp_mochi.setPosition(0);
-        mufasa(1000, 0);
-        mufasa(1248, 1);
-        mufasa(1000, 0);
-        turningRed(34, 1);
-        mufasa(1000, 0);
-        lifty(1000, 1);
-        mufasa(1000, 0);
-        robot.clamp_lol.setPosition(1);
-        robot.clamp_mochi.setPosition(1);
-        lifty(1000, -1);
-*/
-        robot.clamp_lol.setPosition(0);
-        robot.clamp_mochi.setPosition(0);
-        mufasa(1000, 0);
-        mufasa(1248, 1);
-        mufasa(1000, 0);
-
-
-
-
-        encoderDrive (1, 200, 200, 200, 200);
+        mufasa(1148, 1);
+        mufasa(2000, 0);
     }
 
     public void mufasa(int time, int speed) { //forward
@@ -54,10 +32,10 @@ public class blueparkinglol extends LinearOpMode {
     }
 
     public void turningRed(int time, int speed) { // turn
-        robot.bRight.setPower(speed);
-        robot.bLeft.setPower(-speed);
-        robot.fRight.setPower(speed);
-        robot.fLeft.setPower(-speed);
+        robot.bRight.setPower(-speed);
+        robot.bLeft.setPower(speed);
+        robot.fRight.setPower(-speed);
+        robot.fLeft.setPower(speed);
         sleep(time);
     }
 
@@ -135,4 +113,3 @@ public class blueparkinglol extends LinearOpMode {
         }
     }
 }
-
