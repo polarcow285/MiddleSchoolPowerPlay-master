@@ -33,7 +33,7 @@ public class Teleop extends LinearOpMode {
             robot.fRight.setPower(frontRightPower);
             robot.bRight.setPower(backRightPower);
             robot.lift_mochi.setPower(-gamepad2.right_stick_y);
-            robot.lift_lol.setPower(gamepad2.right_stick_y);
+            //robot.lift_lol.setPower(gamepad2.right_stick_y);
 
             //teleop goes here (gamepad controls, etc)
              /* if (gamepad2.x) { // go up

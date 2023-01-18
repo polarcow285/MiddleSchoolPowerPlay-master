@@ -36,16 +36,16 @@ public class colin_teleop extends LinearOpMode {
 
             //teleop goes here (gamepad controls, etc)
               if (gamepad1.right_trigger > 0) { // go up
-                robot.lift_lol.setPower(gamepad1.right_trigger);
+                //robot.lift_lol.setPower(gamepad1.right_trigger);
                 robot.lift_mochi.setPower(gamepad1.right_trigger);
 
             }
              else if (gamepad1.left_trigger > 0) {  // go down
-                robot.lift_lol.setPower(-gamepad1.left_trigger);
+                //robot.lift_lol.setPower(-gamepad1.left_trigger);
                 robot.lift_mochi.setPower(-gamepad1.left_trigger);
 
             } else {
-                robot.lift_lol.setPower(0);
+                //robot.lift_lol.setPower(0);
                 robot.lift_mochi.setPower(0);
             }
             if (gamepad1.a) {

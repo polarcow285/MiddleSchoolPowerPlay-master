@@ -62,7 +62,7 @@ public class blueparkinglol extends LinearOpMode {
     }
 
     public void lifty(int time, int speed) { // lift
-        robot.lift_lol.setPower(speed);
+
         robot.lift_mochi.setPower(speed);
         sleep(time);
     }
