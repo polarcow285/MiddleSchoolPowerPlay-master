@@ -61,6 +61,15 @@ public class Teleop extends LinearOpMode {
                 robot.clamp_lol.setPosition(0); //105
                 robot.clamp_mochi.setPosition(0);
 
+            if (gamepad2.x) {
+                robot.hand_lol.setPosition(0);
+                robot.hand_mochi.setPosition(0);
+            }
+
+            if (gamepad2.y) {
+                robot.hand_lol.setPosition(1);
+                robot.hand_mochi.setPosition(1);
+            }
 
             }
         }
