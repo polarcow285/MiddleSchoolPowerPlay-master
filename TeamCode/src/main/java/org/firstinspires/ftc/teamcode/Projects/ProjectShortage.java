@@ -78,3 +78,4 @@ public class ProjectShortage extends Project{
         hand_mochi.setPosition(1);
     }
 }
+//hi
