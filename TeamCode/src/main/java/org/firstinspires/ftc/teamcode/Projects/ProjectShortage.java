@@ -16,8 +16,8 @@ public class ProjectShortage extends Project{
     public DcMotor lift_mochi = null;
     public Servo clamp_lol = null;
     public Servo clamp_mochi = null;
-    public Servo hand_lol = null;
-    public Servo hand_mochi = null;
+    public DcMotor hand_lol = null;
+    public DcMotor hand_mochi = null;
     @Override
     public void init(HardwareMap ahwMap) {
         hwMap = ahwMap;
@@ -31,8 +31,8 @@ public class ProjectShortage extends Project{
         lift_mochi = hwMap.dcMotor.get("liftMochi");
         clamp_lol = hwMap.servo.get("clampLOL");
         clamp_mochi = hwMap.servo.get("clampMochi");
-        hand_lol = hwMap.servo.get("handLOL");
-        hand_mochi = hwMap.servo.get("handMochi");
+        hand_lol = hwMap.dcMotor.get("handLOL");
+        hand_mochi = hwMap.dcMotor.get("handMochi");
 
         //motors face towards each other
         fRight.setDirection(DcMotor.Direction.REVERSE);
@@ -43,8 +43,8 @@ public class ProjectShortage extends Project{
         lift_mochi.setDirection(DcMotor.Direction.FORWARD);
         clamp_lol.setDirection(Servo.Direction.FORWARD);
         clamp_mochi.setDirection(Servo.Direction.REVERSE);
-        hand_lol.setDirection(Servo.Direction.FORWARD);
-        hand_mochi.setDirection(Servo.Direction.REVERSE);
+        hand_lol.setDirection(DcMotor.Direction.FORWARD);
+        hand_mochi.setDirection(DcMotor.Direction.REVERSE);
 
         fRight.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         fLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
@@ -52,6 +52,8 @@ public class ProjectShortage extends Project{
         bLeft.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         lift_lol.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         lift_mochi.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        hand_lol.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        hand_mochi.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
 
         fRight.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
@@ -60,6 +62,8 @@ public class ProjectShortage extends Project{
         bLeft.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         lift_lol.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
         lift_mochi.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        hand_lol.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
+        hand_mochi.setZeroPowerBehavior(DcMotor.ZeroPowerBehavior.BRAKE);
 
         Stop();
 
@@ -74,8 +78,8 @@ public class ProjectShortage extends Project{
         lift_mochi.setPower(0);
         clamp_lol.setPosition(0);
         clamp_mochi.setPosition(0);
-        hand_lol.setPosition(1);
-        hand_mochi.setPosition(1);
+        hand_lol.setPower(0);
+        hand_mochi.setPower(0);
     }
 }
-//hi
+//hiih

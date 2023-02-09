@@ -20,7 +20,7 @@ public class Teleop extends LinearOpMode {
             double rx = gamepad1.left_stick_x; // turning
 
             // Denominator is the largest motor power (absolute value) or 1
-            // This ensures all the powers maintain the same ratio, but only when
+            // This ensures all the posers maintain the same ratio, but only when
             // at least one is out of the range [-1, 1]
             double denominator = Math.max(Math.abs(y) + Math.abs(x) + Math.abs(rx), 1);
             double frontLeftPower = (y + x + rx) / denominator;
@@ -32,9 +32,10 @@ public class Teleop extends LinearOpMode {
             robot.bLeft.setPower(backLeftPower);
             robot.fRight.setPower(frontRightPower);
             robot.bRight.setPower(backRightPower);
-            robot.lift_mochi.setPower(-gamepad2.right_stick_y);
+            robot.lift_mochi.setPower(gamepad2.right_stick_y);
             robot.lift_lol.setPower(gamepad2.right_stick_y);
-
+            robot.hand_mochi.setPower(-gamepad2.right_stick_y);
+            robot.hand_lol.setPower(gamepad2.right_stick_y);
             //teleop goes here (gamepad controls, etc)
              /* if (gamepad2.x) { // go up
                 robot.lift_lol.setPower(1);
@@ -61,14 +62,15 @@ public class Teleop extends LinearOpMode {
                 robot.clamp_lol.setPosition(0); //105
                 robot.clamp_mochi.setPosition(0);
             }
-            if (gamepad2.x) {
-                robot.hand_lol.setPosition(0);
-                robot.hand_mochi.setPosition(0);
-            }
+            if (gamepad2.right_trigger > 0) { // go up
+                robot.hand_lol.setPower(0.5*gamepad1.right_trigger);
+                robot.hand_mochi.setPower(0.5*gamepad1.right_trigger);
 
-            if (gamepad2.y) {
-                robot.hand_lol.setPosition(1);
-                robot.hand_mochi.setPosition(1);
+            }
+            else if (gamepad2.left_trigger > 0) {  // go down
+                robot.hand_lol.setPower(-0.5*gamepad1.left_trigger);
+                robot.hand_mochi.setPower(-0.5*gamepad1.left_trigger);
+
             }
             }
         }
