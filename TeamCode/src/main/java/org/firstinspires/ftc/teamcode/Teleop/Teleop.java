@@ -63,7 +63,7 @@ public class Teleop extends LinearOpMode {
                 robot.clamp_mochi.setPosition(0);
             }
             if (gamepad2.right_trigger > 0) { // go up
-                robot.hand_lol.setPower(-0.5*gamepad1.right_trigger);
+                robot.hand_lol.setPower(-0.5*gamepad2.right_trigger);
                 robot.hand_mochi.setPower(-0.5*gamepad1.right_trigger);
 
             }
