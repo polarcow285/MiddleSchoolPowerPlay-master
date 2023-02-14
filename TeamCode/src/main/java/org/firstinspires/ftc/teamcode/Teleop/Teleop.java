@@ -2,6 +2,7 @@ package org.firstinspires.ftc.teamcode.Teleop;
 
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
+import com.qualcomm.robotcore.hardware.DcMotor;
 
 import org.firstinspires.ftc.teamcode.Projects.ProjectShortage;
 
@@ -15,6 +16,9 @@ public class Teleop extends LinearOpMode {
         waitForStart();
 
         while (opModeIsActive()) {
+            telemetry.addData("encodercount",robot.lift_lol.getCurrentPosition());
+            telemetry.update();
+
             double y = -gamepad1.right_stick_y; // Back and forth
             double x = gamepad1.right_stick_x * 1.1; // strafing
             double rx = gamepad1.left_stick_x; // turning
@@ -32,10 +36,9 @@ public class Teleop extends LinearOpMode {
             robot.bLeft.setPower(backLeftPower);
             robot.fRight.setPower(frontRightPower);
             robot.bRight.setPower(backRightPower);
+            //if (robot.lift_mochi.getCurrentPosition()<the max height && robot.lift_mochi.getCurrentPosition()<the minimum);
             robot.lift_mochi.setPower(gamepad2.right_stick_y);
             robot.lift_lol.setPower(-gamepad2.right_stick_y);
-            robot.hand_mochi.setPower(-gamepad2.right_stick_y);
-            robot.hand_lol.setPower(gamepad2.right_stick_y);
             //teleop goes here (gamepad controls, etc)
              /* if (gamepad2.x) { // go up
                 robot.lift_lol.setPower(1);
@@ -68,9 +71,15 @@ public class Teleop extends LinearOpMode {
 
             }
             else if (gamepad2.left_trigger > 0) {  // go down
-                robot.hand_lol.setPower(1*gamepad2.left_trigger);
-                robot.hand_mochi.setPower(1*gamepad2.left_trigger);
+                robot.hand_lol.setPower(0.5*gamepad2.left_trigger);
+                robot.hand_mochi.setPower(0.5*gamepad2.left_trigger);
 
+            }
+            if(gamepad2.back){
+                robot.lift_lol.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+                robot.lift_lol.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+                robot.lift_mochi.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+                robot.lift_mochi.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
             }
             }
         }
