@@ -16,7 +16,7 @@ public class Teleop extends LinearOpMode {
         waitForStart();
 
         while (opModeIsActive()) {
-            telemetry.addData("encodercount",robot.lift_lol.getCurrentPosition());
+            telemetry.addData("encodercount",robot.hand_lol.getCurrentPosition());
             telemetry.update();
 
             double y = -gamepad1.right_stick_y; // Back and forth
@@ -65,17 +65,17 @@ public class Teleop extends LinearOpMode {
                 robot.clamp_lol.setPosition(0); //105
                 robot.clamp_mochi.setPosition(0);
             }
-            if (gamepad2.right_trigger > 0) { // go up
+            if (gamepad2.right_trigger > 0 && robot.lift_mochi.getCurrentPosition()<-4038 && robot.lift_mochi.getCurrentPosition()>15) { // go up
                 robot.hand_lol.setPower(-1*gamepad2.right_trigger);
                 robot.hand_mochi.setPower(-1*gamepad2.right_trigger);
 
             }
-            else if (gamepad2.left_trigger > 0) {  // go down
+            else if (gamepad2.left_trigger > 0  && robot.lift_mochi.getCurrentPosition()<-4038 && robot.lift_mochi.getCurrentPosition()>15) {  // go down
                 robot.hand_lol.setPower(0.5*gamepad2.left_trigger);
                 robot.hand_mochi.setPower(0.5*gamepad2.left_trigger);
 
             }
-            if(gamepad2.back){
+            if(gamepad2.back){ //if (robot.lift_mochi.getCurrentPosition()<1300 && robot.lift_mochi.getCurrentPosition()>0){
                 robot.lift_lol.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 robot.lift_lol.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
                 robot.lift_mochi.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
