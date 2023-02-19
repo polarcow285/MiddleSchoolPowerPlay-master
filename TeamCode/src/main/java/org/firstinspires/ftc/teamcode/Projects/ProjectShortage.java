@@ -76,8 +76,8 @@ public class ProjectShortage extends Project{
         bLeft.setPower(0);
         lift_lol.setPower(0);
         lift_mochi.setPower(0);
-        clamp_lol.setPosition(0);
-        clamp_mochi.setPosition(0);
+        clamp_lol.setPosition(1);
+        clamp_mochi.setPosition(1);
         hand_lol.setPower(0);
         hand_mochi.setPower(0);
     }
