@@ -17,6 +17,7 @@ public class Teleop extends LinearOpMode {
 
         while (opModeIsActive()) {
             telemetry.addData("encodercount",robot.lift_lol.getCurrentPosition());
+            telemetry.addData("encodercount",robot.lift_mochi.getCurrentPosition());
             telemetry.update();
 
             double y = -gamepad1.right_stick_y; // Back and forth
@@ -28,19 +29,32 @@ public class Teleop extends LinearOpMode {
             // at least one is out of the range [-1, 1]
             double denominator = Math.max(Math.abs(y) + Math.abs(x) + Math.abs(rx), 1);
             double frontLeftPower = (y + x + rx) / denominator;
-            double backLeftPower = (y - x + rx) / denominator;
-            double frontRightPower = (y - x - rx) / denominator;
+            double backLeftPower = (y - x + rx) / denominator;//
+            double frontRightPower = (y - x - rx) / denominator;//
             double backRightPower = (y + x - rx) / denominator;
 
             robot.fLeft.setPower(frontLeftPower);
             robot.bLeft.setPower(backLeftPower);
             robot.fRight.setPower(frontRightPower);
             robot.bRight.setPower(backRightPower);
-            if (robot.lift_mochi.getCurrentPosition()<1300 && robot.lift_mochi.getCurrentPosition()>0){
-            robot.lift_mochi.setPower(gamepad2.right_stick_y);
-            robot.lift_lol.setPower(-gamepad2.right_stick_y);}
+//            if (robot.lift_mochi.getCurrentPosition()<1300 && robot.lift_mochi.getCurrentPosition()>=0 && robot.lift_lol.getCurrentPosition() < 1300 && robot.lift_lol.getCurrentPosition() >= 0){
+//            robot.lift_mochi.setPower(gamepad2.right_stick_y);
+//            robot.lift_lol.setPower(-gamepad2.right_stick_y);}
+
+            if (gamepad2.right_stick_y < 0 && robot.lift_lol.getCurrentPosition()<1300 && robot.lift_mochi.getCurrentPosition()<1300){
+                robot.lift_lol.setPower(-gamepad2.right_stick_y);
+                robot.lift_mochi.setPower(-gamepad2.right_stick_y);
+            }
+            else if(gamepad2.right_stick_y > 0 && robot.lift_mochi.getCurrentPosition()>0 && robot.lift_lol.getCurrentPosition()>0) {
+                robot.lift_lol.setPower(-gamepad2.right_stick_y);
+                robot.lift_mochi.setPower(-gamepad2.right_stick_y);
+            }
+            else{
+                robot.lift_lol.setPower(0);
+                robot.lift_mochi.setPower(0);
+            }
             //teleop goes here (gamepad controls, etc)
-             /* if (gamepad2.x) { // go up
+             /* if (gamepad2.x) { // go u2.
                 robot.lift_lol.setPower(1);
                 robot.lift_mochi.setPower(1);
 
@@ -75,14 +89,16 @@ public class Teleop extends LinearOpMode {
                 robot.hand_mochi.setPower(0.5*gamepad2.left_trigger);
 
             }
+
+
             if(gamepad2.back){ //if (robot.lift_mochi.getCurrentPosition()<1300 && robot.lift_mochi.getCurrentPosition()>0){
                 robot.lift_lol.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 robot.lift_lol.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
                 robot.lift_mochi.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
                 robot.lift_mochi.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
             }
-            }
         }
     }
+}
 
-    //hi
+//hi
